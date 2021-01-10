@@ -15,7 +15,7 @@
 <div class="container">
 	<div class="jumbotron">
 		<footer class="text-center bg-red" style="color: red;">
-			<p>Copyright &copy; 2021 이정환 All Right Reserved.</p>
+			<p>Copyright &copy; 2021 LJH All Right Reserved.</p>
 		</footer>
 	</div>
 </div>

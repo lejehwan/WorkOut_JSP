@@ -28,7 +28,8 @@
 		<div class ="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="index.jsp">Main</a></li>
-				<li><a href="board.jsp">Notice Board</a></li>
+				<li><a href="exercise.jsp">Exercise</a></li>
+				<li class="active"><a href="board.jsp">Notice Board</a></li>
 			</ul>
 			<%
 				//로그인이 되어 있지 않다면
