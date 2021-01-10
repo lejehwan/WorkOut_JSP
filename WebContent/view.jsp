@@ -62,10 +62,40 @@
 			%>
 				<a href ="update.jsp?boardID=<%= boardID%>" class ="btn btn-primary">수정</a>
 				<a onclick="return confirm('정말로 삭제하시겠습니까?')" href ="deleteAction.jsp?boardID=<%= boardID%>" class ="btn btn-primary">삭제</a>
-			
+				<a onclick="return confirm('추천하시겠습니까?')" href="likeAction.jsp?boardID=<%= boardID%>" class ="btn btn-primary">추천</a>
+				<a class="btn btn-danger mx-1 mt-2" data-toggle="modal" href="#reportModal">신고</a>
 			<% 
 				}
 			%>
+			
+		</div>
+	</div>
+	<div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modal">신고하기</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form action="./reportAction.jsp" method="post">
+						<div class="form-group">
+							<label>신고 제목</label>
+							<input type="text" name="reportTitle" class="form-control" maxlength="30">
+						</div>
+						<div class="form-group">
+							<label>신고 내용</label>
+							<textarea name="reportContent" class="form-control" maxlength="2048" style="height:180px"></textarea>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+							<button type="submit" class="btn btn-danger">신고하기</button>
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
 	
