@@ -54,7 +54,7 @@ public class BoardDAO {
 	}
 	
 	public int write(String boardTitle, String userID, String boardContent) {
-		String SQL = "insert into board values(?, ?, ?, ?, ?, ?)";
+		String SQL = "insert into board values(?, ?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, getNext());
@@ -63,6 +63,7 @@ public class BoardDAO {
 			pstmt.setString(4, getDate());
 			pstmt.setString(5, boardContent);
 			pstmt.setInt(6, 1);
+			pstmt.setInt(7, 0);
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -86,6 +87,7 @@ public class BoardDAO {
 					bbs.setBoardDate(rs.getString(4));
 					bbs.setBoardContent(rs.getString(5));
 					bbs.setBoardAvailable(rs.getInt(6));
+					bbs.setLikeCount(rs.getInt(7));
 					list.add(bbs);
 				}
 			} catch (Exception e) {
@@ -126,6 +128,7 @@ public class BoardDAO {
 					bbs.setBoardDate(rs.getString(4));
 					bbs.setBoardContent(rs.getString(5));
 					bbs.setBoardAvailable(rs.getInt(6));
+					bbs.setLikeCount(rs.getInt(7));
 					return bbs;
 					}
 			} catch (Exception e) {
@@ -159,5 +162,17 @@ public class BoardDAO {
 				e.printStackTrace();
 			}
 			return -1; // 데이터베이스 오류
+		}
+		
+		public int like(String boardID) {
+			String SQL = "update board set likeCount = likeCount + 1 where boardID =?";
+			try {
+				pstmt = conn.prepareStatement(SQL);
+				pstmt.setString(1, boardID);
+				return pstmt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return -1;// db오류
 		}
 }

@@ -65,6 +65,13 @@
 				<a onclick="return confirm('추천하시겠습니까?')" href="likeAction.jsp?boardID=<%= boardID%>" class ="btn btn-primary">추천</a>
 				<a class="btn btn-danger mx-1 mt-2" data-toggle="modal" href="#reportModal">신고</a>
 			<% 
+				}else{
+			%>
+			
+			<a onclick="return confirm('추천하시겠습니까?')" href="likeAction.jsp?boardID=<%= boardID%>" class ="btn btn-primary">추천</a>
+			<a class="btn btn-danger mx-1 mt-2" data-toggle="modal" href="#reportModal">신고</a>
+			
+			<%
 				}
 			%>
 			

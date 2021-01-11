@@ -8,6 +8,7 @@ public class BoardDTO {
 	private String boardDate;
 	private String boardContent;
 	private int boardAvailable;
+	private int likeCount;
 
 	public int getBoardID() {
 		return boardID;
@@ -55,6 +56,14 @@ public class BoardDTO {
 
 	public void setBoardAvailable(int boardAvailable) {
 		this.boardAvailable = boardAvailable;
+	}
+
+	public int getLikeCount() {
+		return likeCount;
+	}
+
+	public void setLikeCount(int likeCount) {
+		this.likeCount = likeCount;
 	}
 
 }

@@ -32,6 +32,7 @@
 						<th style="backgroud-color: #eeeeee; text-align: center">제목</th>
 						<th style="backgroud-color: #eeeeee; text-align: center">작성자</th>
 						<th style="backgroud-color: #eeeeee; text-align: center">작성일</th>
+						<th style="backgroud-color: #eeeeee; text-align: center">추천수</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -45,6 +46,7 @@
 						<td><a href="view.jsp?boardID=<%=list.get(i).getBoardID() %>"><%=list.get(i).getBoardTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></a></td>
 						<td><%=list.get(i).getUserID() %></td>
 						<td><%=list.get(i).getBoardDate().substring(0,11) + list.get(i).getBoardDate().substring(11,13) +"시" + list.get(i).getBoardDate().substring(14,16) + "분"%></td>
+						<td><%=list.get(i).getLikeCount() %></td>
 					</tr>
 					<% 		
 						}
