@@ -45,7 +45,7 @@
 	String host = "http://localhost:8080/project_wo/";
 	String from = "rdsa2577@gmail.com";
 	String to = "rdsa257@naver.com";
-	String subject = "WorkOut_JSP에서 접수된 신고 메일입니다.";
+	String subject = "WorkOut_JSP에서 접수된 신고(오류) 메일입니다.";
 	String content = "신고자 : " + userID + "<br>제목 : " + reportTitle + "<br>내용 : " + reportContent;  
 		
 	Properties p = new Properties();

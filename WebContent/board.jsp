@@ -13,6 +13,12 @@
 <title>WorkOut_JSP</title>
 <link rel = "stylesheet" href ="css/bootstrap.css">
 <link rel = "stylesheet" href ="css/custom.css">
+<style type="text/css">
+	a, a:hover{
+		color: #000000;
+		text-decoration: none;
+	}
+</style>
 </head>
 <body>
 	<%
