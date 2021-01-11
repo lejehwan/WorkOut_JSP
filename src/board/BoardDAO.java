@@ -27,7 +27,7 @@ public class BoardDAO {
 	public String getDate() {
 		String SQL = "select now()";
 		try {
-			pstmt = conn.prepareStatement(SQL);
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return rs.getString(1);
@@ -41,7 +41,7 @@ public class BoardDAO {
 	public int getNext() {
 		String SQL = "select boardID from board order by boardID desc";// 가장 마지막 게시글을 가져오기
 		try {
-			pstmt = conn.prepareStatement(SQL);
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return rs.getInt(1) + 1;// 그 다음 게시글에 번호가 들어가게 만듬
@@ -56,7 +56,7 @@ public class BoardDAO {
 	public int write(String boardTitle, String userID, String boardContent) {
 		String SQL = "insert into board values(?, ?, ?, ?, ?, ?)";
 		try {
-			pstmt = conn.prepareStatement(SQL);
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, getNext());
 			pstmt.setString(2, boardTitle);
 			pstmt.setString(3, userID);
@@ -75,7 +75,7 @@ public class BoardDAO {
 			String SQL = "select * from board where boardID <? and boardAvailable =1 order by boardID desc limit 10";
 			ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
 			try {
-				pstmt = conn.prepareStatement(SQL);
+				PreparedStatement pstmt = conn.prepareStatement(SQL);
 				pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
 				rs = pstmt.executeQuery();
 				while (rs.next()) {
@@ -98,7 +98,7 @@ public class BoardDAO {
 		public boolean nextPage(int pageNumber) {
 			String SQL = "select * from board where boardID <? and boardAvailable =1 order by boardID desc limit 10";
 			try {
-				pstmt = conn.prepareStatement(SQL);
+				PreparedStatement pstmt = conn.prepareStatement(SQL);
 				pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
 				rs = pstmt.executeQuery();
 				while (rs.next()) {
@@ -115,7 +115,7 @@ public class BoardDAO {
 		public BoardDTO getBoard(int boardID) {
 			String SQL = "select * from board where boardID = ?";
 			try {
-				pstmt = conn.prepareStatement(SQL);
+				PreparedStatement pstmt = conn.prepareStatement(SQL);
 				pstmt.setInt(1, boardID);
 				rs = pstmt.executeQuery();
 				if (rs.next()) {
@@ -138,7 +138,7 @@ public class BoardDAO {
 		public int update(String boardTitle, String boardContent, int boardID) {
 			String SQL = "update board set boardTitle =? , boardContent =? where boardID =?";
 			try {
-				pstmt = conn.prepareStatement(SQL);
+				PreparedStatement pstmt = conn.prepareStatement(SQL);
 				pstmt.setString(1, boardTitle);
 				pstmt.setString(2, boardContent);
 				pstmt.setInt(3, boardID);
@@ -152,7 +152,7 @@ public class BoardDAO {
 		public int delete(int boardID) {
 			String SQL = "update board set boardAvailable = 0 where boardID =?";
 			try {
-				pstmt = conn.prepareStatement(SQL);
+				PreparedStatement pstmt = conn.prepareStatement(SQL);
 				pstmt.setInt(1, boardID);
 				return pstmt.executeUpdate();
 			} catch (Exception e) {
