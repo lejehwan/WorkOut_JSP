@@ -49,7 +49,7 @@
 					<tr>
 						<%-- <th><img src="C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Workout\upload\
 						<%=list.get(i).getFileRealName()%>"></th> --%>
-						<th><img src="${pageContext.request.contextPath}/upload/<%=list.get(i).getFileRealName()%>" style="width: 20%"/></th>
+						<th><img src="${pageContext.request.contextPath}/upload/<%=list.get(i).getFileRealName()%>" style="width: 20%; height: 40%"/></th>
 					</tr>
 					<tr>
 						<td><p><%=list.get(i).getFileRealName()%></p></td>
